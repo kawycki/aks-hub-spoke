@@ -11,20 +11,20 @@ resource "azurerm_firewall_policy" "firewall" {
   }
 }
 
-resource "azurerm_firewall" "firewall" {
-  name                = local.fw_name
-  location            = azurerm_resource_group.sandbox_rg.location
-  resource_group_name = azurerm_resource_group.sandbox_rg.name
-  sku_tier            = "Basic"
-  sku_name            = "AZFW_VNet"
-  firewall_policy_id  = azurerm_firewall_policy.firewall.id
+# resource "azurerm_firewall" "firewall" {
+#   name                = local.fw_name
+#   location            = azurerm_resource_group.sandbox_rg.location
+#   resource_group_name = azurerm_resource_group.sandbox_rg.name
+#   sku_tier            = "Basic"
+#   sku_name            = "AZFW_VNet"
+#   firewall_policy_id  = azurerm_firewall_policy.firewall.id
 
-  management_ip_configuration {
-    name = "default"
-    subnet_id = element(azurerm_virtual_network.hub_vnet.subnet.*.id, 2)
-    public_ip_address_id = azurerm_public_ip.firewall_pip.id
-  }
-}
+#   management_ip_configuration {
+#     name = "default"
+#     subnet_id = element(azurerm_virtual_network.hub_vnet.subnet.*.id, 2)
+#     public_ip_address_id = azurerm_public_ip.firewall_pip.id
+#   }
+# }
 
 resource "azurerm_network_security_group" "spoke_linkendpoints_nsg" {
   location            = azurerm_resource_group.sandbox_rg.location
