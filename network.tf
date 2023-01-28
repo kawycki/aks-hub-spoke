@@ -21,7 +21,7 @@ resource "azurerm_subnet" "hub_vnet_gateway_subnet" {
 
 resource "azurerm_subnet" "hub_vnet_firewall_subnet" {
   address_prefixes     = ["10.0.3.0/26"]
-  name                 = "AzureFirewallManagementSubnet"
+  name                 = "AzureFirewallSubnet"
   resource_group_name  = azurerm_resource_group.sandbox_rg.name
   virtual_network_name = azurerm_virtual_network.hub_vnet.name
 }
