@@ -131,10 +131,10 @@ resource "azurerm_virtual_network_peering" "hub_vnet_to_spoke_two_peering" {
   virtual_network_name      = azurerm_virtual_network.hub_vnet.name
 }
 
-resource "azurerm_public_ip" "firewall_pip" {
-  allocation_method   = "Static"
-  location            = azurerm_resource_group.sandbox_rg.location
-  name                = "pip-fw-westeurope-00"
-  resource_group_name = azurerm_resource_group.sandbox_rg.name
-  sku                 = "Standard"
-}
+# resource "azurerm_public_ip" "firewall_pip" {
+#   allocation_method   = "Static"
+#   location            = azurerm_resource_group.sandbox_rg.location
+#   name                = "pip-fw-westeurope-00"
+#   resource_group_name = azurerm_resource_group.sandbox_rg.name
+#   sku                 = "Standard"
+# }
